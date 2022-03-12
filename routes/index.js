@@ -3,7 +3,7 @@ const router = express.Router()
 const { fetchTable } = require('../controllers/index')
 
 router.get('/', async (request, result) => {
-    const people = await fetchTable('people.json', '2eab1a30')
+    const people = await fetchTable('people.json', 'Api-Key')
 
     result.render('index', { people })
 })
