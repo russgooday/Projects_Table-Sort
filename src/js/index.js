@@ -4,17 +4,16 @@ import { TableRow } from '../templates/Table-Row.js'
 
 window.document.addEventListener('DOMContentLoaded', async () => {
 
-    const table = document.getElementById('table-people')
-    const tHead = table.tHead
-    const tBody = table.tBodies[0]
+    const tableHeadings = document.querySelectorAll('#table-people th')
+    const tableBody = document.querySelector('#table-people tbody')
 
     try {
         const people = await fetchTable('people.json', '2eab1a30')
 
         // populate the table on load
-        tBody.insertAdjacentHTML('afterBegin', people.map(TableRow).join(''))
+        tableBody.insertAdjacentHTML('afterBegin', people.map(TableRow).join(''))
 
-        tHead.addEventListener('click', sortHandler)
+        tableHeadings.forEach((heading) => heading.addEventListener('click', sortHandler))
 
     } catch (err) { console.log(err) }
 })

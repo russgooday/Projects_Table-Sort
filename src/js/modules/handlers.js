@@ -7,7 +7,7 @@ const appendRow = tBody.appendChild.bind(tBody) // bind appendChild method to tB
 const getTextFromColumn = curry2((column, row) => row.cells[column].textContent)
 
 export const sortHandler = function (event) {
-    const currentHeading = event.target
+    const currentHeading = event.currentTarget
 
     if (!currentHeading.hasAttribute('data-ascend')) return
 
