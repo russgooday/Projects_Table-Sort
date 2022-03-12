@@ -3,7 +3,7 @@ const express = require('express')
 const routes = require('./routes/index')
 const ejs = require('ejs')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 8080
 
 app.set('view engine', 'ejs')
 
