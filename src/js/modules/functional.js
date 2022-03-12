@@ -32,6 +32,24 @@ export const curry3 = (fn) => {
     }
 }
 
+const shallowCopy = (source) => Object.assign(source.constructor(), source)
+
+/**
+ * With a given path attempts to search through an object for a property value.
+ * @param {Array [String|Number]} ['names', 1] | { names: ['Joe', 'Bloggs'] } -> 'Bloggs'
+ * @return {*} If found a value of any type or undefined
+ */
+export const getByPath = curry2((path, source) => {
+    let value = source
+
+    for (const key of path) {
+        if (value === undefined) return
+        value = value[key]
+    }
+
+    return (typeof value === 'object') ? shallowCopy(value) : value
+})
+
 export const inspect = (x) => (console.log(x), x)
 
 /**

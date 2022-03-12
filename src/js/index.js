@@ -8,7 +8,7 @@ window.document.addEventListener('DOMContentLoaded', async () => {
     const tableBody = document.querySelector('#table-people tbody')
 
     try {
-        const people = await fetchTable('people.json', '2eab1a30')
+        const people = await fetchTable('people.json', 'Api-Key')
 
         // populate the table on load
         tableBody.insertAdjacentHTML('afterBegin', people.map(TableRow).join(''))
