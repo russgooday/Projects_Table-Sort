@@ -7,6 +7,7 @@ const appendRow = tBody.appendChild.bind(tBody) // bind appendChild method to tB
 
 export const sortHandler = function (event) {
     const currentHeading = event.currentTarget
+    console.log('clicked')
 
     if (!currentHeading.hasAttribute('data-ascend')) return
 
