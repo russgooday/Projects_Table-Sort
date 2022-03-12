@@ -1,1 +1,2 @@
-# Projects_Table-Sort
+# Table Sort
+### Vanilla JS
