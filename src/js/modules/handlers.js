@@ -1,21 +1,24 @@
-import { ascend, descend, getByPath } from './functional.js'
+// import Ascend and Descend comparator functions
+import { ascend, descend, curry2 } from './functional.js'
 
 const tBody = document.querySelector('#table-people tbody')
+
 const appendRow = tBody.appendChild.bind(tBody) // bind appendChild method to tBody
+const getTextFromColumn = curry2((column, row) => row.cells[column].textContent)
 
 export const sortHandler = function (event) {
-    const tableHead = event.target
+    const currentHeading = event.target
 
-    if (!tableHead.hasAttribute('data-ascend')) return
+    if (!currentHeading.hasAttribute('data-ascend')) return
 
-    const selectedColumn = getByPath(['cells', tableHead.cellIndex, 'textContent'])
-    const ascending = (tableHead.dataset.ascend === 'true')
-    const order = (ascending) ? descend : ascend
+    const column = currentHeading.cellIndex
+    const ascending = (currentHeading.dataset.ascend === 'true')
+    const compare = (ascending) ? descend : ascend
 
     Array
         .from(tBody.rows)
-        .sort(order(selectedColumn))
+        .sort(compare(getTextFromColumn(column)))
         .forEach(appendRow)
 
-    tableHead.dataset.ascend = !ascending // toggle order direction
+    currentHeading.dataset.ascend = !ascending // toggle order direction
 }
