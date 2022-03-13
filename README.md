@@ -1,4 +1,5 @@
 <img src='rpg-digital.ico' width='50'/>
+
 # Table Sort
 A personal project utilising custom functional methods for sorting table columns in ascending and descending order. Tables populated with data fetched from the [mockaroo](https://www.mockaroo.com/) API.
 
