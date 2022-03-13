@@ -1,5 +1,5 @@
 # Table Sort
-Utilising custom functional methods for sorting.
+Utilising custom functional methods for sorting table columns in ascending and descending order. Tables populated with data fetched from the [mockaroo](https://www.mockaroo.com/) API.
 
 1. [Vanilla JS](https://github.com/russgooday/Projects_Table-Sort/tree/vanilla-js)
 2. [Node JS](https://github.com/russgooday/Projects_Table-Sort/tree/node-js)
